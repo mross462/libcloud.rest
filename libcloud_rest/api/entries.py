@@ -460,7 +460,7 @@ class CloudStackAddressEntry(LibcloudObjectEntry):
 
 
 class CloudStackForwardingRuleEntry(LibcloudObjectEntry):
-    object_class = compute_cloudstack.CloudStackForwardingRule
+    object_class = compute_cloudstack.CloudStackPortForwardingRule
     render_attrs = ('node', 'id', 'address', 'protocol',
                     'start_port', 'end_port')
 
@@ -469,7 +469,7 @@ class CloudStackForwardingRuleEntry(LibcloudObjectEntry):
 
     def _get_object(self, json_data, driver=None):
         rule_id = json_data['cloudstack_forwarding_rule_id']
-        return compute_cloudstack.CloudStackForwardingRule(
+        return compute_cloudstack.CloudStackPortForwardingRule(
             None, rule_id, None, None, None)
 
 
